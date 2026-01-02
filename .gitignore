@@ -1,0 +1,8 @@
+data/*
+models/*
+!data/README.md
+!models/README.md
+*.zip
+*.env
+*.pdf
+*.docx
