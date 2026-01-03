@@ -55,3 +55,18 @@ resume-job-matching-nlp/
 │   └─ UpdatedResumeDataSet.csv   # Placeholder for dataset (not committed if private)
 │
 └─ README.md
+
+## Example Output
+
+The system compares a resume and job description using multiple similarity signals and produces a final match score along with a skill gap analysis.
+
+### Final Match Scores
+![Final Match Scores](assets/final_scores.png)
+
+### Skill Gap Analysis
+![Skill Gap Analysis](assets/gap_analysis.png)
+
+**Notes:**
+- Gap analysis highlights skills not explicitly surfaced in the resume text, not necessarily lack of knowledge.
+- This mirrors real ATS behavior and helps identify opportunities for resume optimization.
+
