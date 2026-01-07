@@ -22,7 +22,35 @@ The goal is to build a reusable pipeline that:
    - Alignment score / insights
 
 ---
+## 🏗️ Project Architecture
 
+The system is implemented as a modular pipeline with parallel processing and converging decision logic. Multiple extraction and similarity components operate independently and are combined into an interpretable final score.
+
+```mermaid
+flowchart LR
+    A[Resume (PDF, DOCX, TXT)] --> B[Text Extraction & Preprocessing]
+    C[Job Description (PDF, DOCX, TXT)] --> B
+
+    B --> D1[Rule-Based Skill Extraction]
+    B --> D2[ML-Based Semantic Skill Extraction]
+
+    B --> E1[BERT Semantic Similarity]
+    B --> E2[TF-IDF Keyword Similarity]
+    B --> E3[Role / Category Matching]
+
+    D1 --> F[Skill Matching & Gap Analysis]
+    D2 --> F
+
+    E1 --> G[Weighted Score Aggregation]
+    E2 --> G
+    E3 --> G
+
+    F --> H[Interpretable Feedback]
+    G --> H
+
+    H --> I[Final Match Score and Skill Gaps]
+```
+---
 ## 🧠 Model / NLP Pipeline
 
 Typical steps in the pipeline include:
